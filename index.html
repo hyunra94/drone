@@ -2,11 +2,10 @@
 <html lang="ko">
 <head>
   <link rel="icon" href="favicon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>드론 교육 출석 안내</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛸</text></svg>">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>드론 교육 출석 안내</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --sky: #0ea5e9;
@@ -29,31 +28,31 @@
       linear-gradient(90deg,rgba(14,165,233,.06) 1px,transparent 1px);
     background-size:40px 40px; pointer-events:none; z-index:0;
   }
-  .wrap { position:relative; z-index:1; max-width:880px; margin:0 auto; padding:44px 20px 80px; }
+  .wrap { position:relative; z-index:1; max-width:880px; margin:0 auto; padding:20px 20px 24px; }
 
   /* HERO */
-  .hero { text-align:center; margin-bottom:32px; animation:fadeDown .5s ease both; }
+  .hero { text-align:center; margin-bottom:16px; animation:fadeDown .5s ease both; }
   .hero-badge {
     display:inline-block;
     background:linear-gradient(135deg,var(--sky),var(--sky-dark));
     font-size:11px; font-weight:700; letter-spacing:.12em;
-    padding:4px 14px; border-radius:99px; margin-bottom:12px;
+    padding:3px 12px; border-radius:99px; margin-bottom:8px;
   }
-  .hero h1 { font-weight:900; font-size:clamp(24px,5vw,40px); line-height:1.15; letter-spacing:-.02em; }
+  .hero h1 { font-weight:900; font-size:clamp(20px,4vw,32px); line-height:1.15; letter-spacing:-.02em; }
   .hero h1 span { color:var(--sky); }
-  .hero-sub { margin-top:8px; color:var(--muted); font-size:13px; }
+  .hero-sub { margin-top:6px; color:var(--muted); font-size:12px; }
 
   /* COURSES GRID */
-  .courses-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; animation:fadeUp .5s .1s ease both; }
+  .courses-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; animation:fadeUp .5s .1s ease both; }
   @media(max-width:580px){ .courses-grid{ grid-template-columns:1fr; } }
 
   .course-card { border-radius:16px; border:1px solid var(--border); background:var(--card-bg); display:flex; flex-direction:column; }
-  .course-header { padding:14px 18px 12px; font-weight:900; font-size:17px; display:flex; align-items:center; gap:8px; border-radius:15px 15px 0 0; }
+  .course-header { padding:10px 14px 9px; font-weight:900; font-size:15px; display:flex; align-items:center; gap:8px; border-radius:15px 15px 0 0; }
   .course-a .course-header { background:linear-gradient(135deg,#0369a1,#0ea5e9); }
   .course-b .course-header { background:linear-gradient(135deg,#065f46,#10b981); }
   .hd-right { margin-left:auto; }
   .count-badge { background:rgba(255,255,255,.2); font-size:11px; font-weight:700; padding:2px 9px; border-radius:99px; }
-  .course-body { padding:16px 16px 0; }
+  .course-body { padding:10px 12px 0; }
 
   /* DAY BUTTONS */
   .days-row { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px; }
@@ -88,11 +87,6 @@
     transition:background .1s; white-space:nowrap;
   }
   .day-menu-item:hover { background:rgba(255,255,255,.09); }
-  .day-menu-item.blocked {
-    opacity:.35; cursor:not-allowed;
-    background:rgba(239,68,68,.05);
-  }
-  .day-menu-item.blocked:hover { background:rgba(239,68,68,.05); }
   .mi-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
   .mi-present .mi-dot { background:#22c55e; }
   .mi-absent  .mi-dot { background:#ef4444; }
@@ -131,56 +125,13 @@
 
   /* INFOGRAPHIC */
   .info-section { animation:fadeUp .5s .25s ease both; }
-  .info-section-title { font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--sky); margin-bottom:14px; }
-  .info-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
-  @media(max-width:640px){ .info-grid{ grid-template-columns:1fr; } }
   .info-card { background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:20px 18px; display:flex; flex-direction:column; gap:14px; }
   .info-card-title { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--sky); padding-bottom:10px; border-bottom:1px solid var(--border); }
 
-  /* 수료기준 */
-  .completion-flow { display:flex; flex-direction:column; gap:8px; }
-  .cf-item { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.04); border-radius:10px; padding:10px 12px; }
-  .cf-icon { font-size:22px; flex-shrink:0; width:32px; text-align:center; }
-  .cf-text { font-size:12px; line-height:1.5; }
-  .cf-text strong { color:var(--white); font-size:13px; }
-  .cf-text span   { color:var(--muted); font-size:11px; }
-  .cf-arrow { text-align:center; color:var(--muted); font-size:16px; }
-
-  /* 시간기준 */
-  .time-flow { display:flex; flex-direction:column; gap:6px; }
-  .tf-row { display:flex; align-items:center; gap:10px; border-radius:10px; padding:9px 12px; }
-  .tf-row.ok    { background:rgba(34,197,94,.12);  border:1px solid rgba(34,197,94,.2); }
-  .tf-row.late  { background:rgba(245,158,11,.12); border:1px solid rgba(245,158,11,.2); }
-  .tf-row.early { background:rgba(239,68,68,.12);  border:1px solid rgba(239,68,68,.2); }
-  .tf-row.out   { background:rgba(148,163,184,.07);border:1px solid rgba(148,163,184,.15); }
-  .tf-icon { font-size:18px; width:26px; text-align:center; flex-shrink:0; }
-  .tf-body { display:flex; flex-direction:column; }
-  .tf-label { font-size:12px; font-weight:700; }
-  .tf-row.ok    .tf-label { color:#4ade80; }
-  .tf-row.late  .tf-label { color:#fcd34d; }
-  .tf-row.early .tf-label { color:#f87171; }
-  .tf-row.out   .tf-label { color:var(--muted); }
-  .tf-time { font-size:11px; color:var(--muted); margin-top:1px; }
-
-  /* 패널티 */
-  .penalty-flow { display:flex; flex-direction:column; gap:8px; }
-  .pf-sources { display:flex; gap:6px; }
-  .pf-src { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; background:rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.2); border-radius:10px; padding:10px 6px; text-align:center; }
-  .pf-src-icon { font-size:20px; }
-  .pf-src-label { font-size:10px; font-weight:700; color:#fcd34d; }
-  .pf-eq { text-align:center; font-size:12px; font-weight:700; color:var(--muted); display:flex; align-items:center; justify-content:center; gap:6px; }
-  .pf-eq-badge { background:rgba(239,68,68,.15); border:1px solid rgba(239,68,68,.3); border-radius:8px; padding:5px 10px; font-size:12px; font-weight:700; color:#f87171; }
-
   /* 타임라인 */
-  .tl-wrap {
-    position: relative;
-    padding: 38px 0 30px;
-    user-select: none;
-  }
-  /* 색 구간: 초록(09:00~09:10, 2.56%) / 노랑(09:11~15:19, 94.87%) / 초록(15:20~15:30, 2.56%) */
+  .tl-wrap { position:relative; padding:38px 0 30px; user-select:none; }
   .tl-bar {
-    height: 16px;
-    border-radius: 99px;
+    height:16px; border-radius:99px; position:relative;
     background: linear-gradient(90deg,
       #22c55e 0%,
       #22c55e 2.56%,
@@ -189,53 +140,22 @@
       #22c55e 97.44%,
       #22c55e 100%
     );
-    position: relative;
   }
-  .tl-marks {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-  }
+  .tl-marks { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; }
   .tl-m {
-    position: absolute;
-    top: 0; bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: translateX(-50%);
+    position:absolute; top:0; bottom:0;
+    display:flex; flex-direction:column; align-items:center;
+    transform:translateX(-50%);
   }
-  .tl-m-line {
-    width: 1px;
-    flex: 1;
-    background: rgba(255,255,255,.3);
-  }
-  .tl-m-label {
-    font-size: 10px;
-    font-weight: 700;
-    white-space: nowrap;
-    line-height: 1.35;
-    text-align: center;
-  }
-  .tl-m-label small {
-    display: block;
-    font-size: 9px;
-    font-weight: 500;
-    opacity: .75;
-    margin-top: 1px;
-  }
-  .tl-m-top { order: -1; margin-bottom: 5px; }
-  .tl-m-bot { order: 1;  margin-top: 5px; }
-  .tl-desc-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    font-size: 10px;
-    font-weight: 700;
-    gap: 4px;
-  }
-  .tl-desc-ok   { color: #4ade80; white-space: nowrap; }
-  .tl-desc-warn { color: #fcd34d; text-align: center; flex: 1; }
-  .tl-desc-ok2  { color: #4ade80; white-space: nowrap; }
+  .tl-m-line { width:1px; flex:1; background:rgba(255,255,255,.3); }
+  .tl-m-label { font-size:10px; font-weight:700; white-space:nowrap; line-height:1.35; text-align:center; }
+  .tl-m-label small { display:block; font-size:9px; font-weight:500; opacity:.75; margin-top:1px; }
+  .tl-m-top { order:-1; margin-bottom:5px; }
+  .tl-m-bot { order:1; margin-top:5px; }
+  .tl-desc-row { display:flex; justify-content:space-between; margin-top:8px; font-size:10px; font-weight:700; gap:4px; }
+  .tl-desc-ok   { color:#4ade80; white-space:nowrap; }
+  .tl-desc-warn { color:#fcd34d; text-align:center; flex:1; }
+  .tl-desc-ok2  { color:#4ade80; white-space:nowrap; }
 
   /* TOAST */
   .toast {
@@ -297,33 +217,25 @@
     <button class="reset-btn" onclick="resetAll()">🔄 초기화</button>
   </div>
 
-
-
   <!-- INFOGRAPHIC -->
   <div class="info-section">
-
-    <!-- 시간 기준 타임라인 -->
-    <div class="info-card" style="margin-bottom:12px">
+    <div class="info-card">
       <div class="info-card-title">⏰ 시간 기준</div>
       <div class="tl-wrap">
         <div class="tl-bar"></div>
         <div class="tl-marks">
-          <!-- 09:00 아래 -->
           <div class="tl-m" style="left:0%">
             <div class="tl-m-line"></div>
             <div class="tl-m-label tl-m-bot" style="color:#4ade80">09:00<small>수업 시작</small></div>
           </div>
-          <!-- 09:11 위 -->
           <div class="tl-m" style="left:2.56%">
             <div class="tl-m-label tl-m-top" style="color:#fcd34d">09:11<small>지각 기준</small></div>
             <div class="tl-m-line" style="background:#fcd34d"></div>
           </div>
-          <!-- 15:19 아래 -->
           <div class="tl-m" style="left:97.44%">
             <div class="tl-m-line" style="background:#fcd34d"></div>
             <div class="tl-m-label tl-m-bot" style="color:#4ade80">15:20<small>정상 퇴실</small></div>
           </div>
-          <!-- 15:30 위 -->
           <div class="tl-m" style="left:100%">
             <div class="tl-m-label tl-m-top" style="color:#4ade80">15:30<small>수업 종료</small></div>
             <div class="tl-m-line"></div>
@@ -332,11 +244,10 @@
         <div class="tl-desc-row">
           <span class="tl-desc-ok">✅ 정상 출석</span>
           <span class="tl-desc-warn">⚠️ 09:11 이후 지각 · 15:19 이전 조퇴</span>
-          <span class="tl-desc-ok2">✅ 정상 퇴실</span>
+          <span class="tl-desc-ok2">✅ 정상 출석</span>
         </div>
       </div>
     </div>
-
   </div>
 
 </div>
@@ -361,7 +272,6 @@ const COURSES = {
   ]
 };
 
-// 기본값: 모두 출석
 const state = {
   a: ['present','present','present','present','present'],
   b: ['present','present','present','present','present']
@@ -369,7 +279,6 @@ const state = {
 let openMenu = null;
 let toastTimer = null;
 
-/* 과정에 결석이 1개라도 있는지 */
 function hasAbsent(course) {
   return state[course].some(v => v === 'absent');
 }
@@ -401,14 +310,11 @@ function buildCourse(course) {
 
     const menu = document.createElement('div');
     menu.className = 'day-menu';
-
-    // 결석 여부와 관계없이 모든 항목 선택 가능
     menu.innerHTML = `
       <div class="day-menu-item mi-present" data-s="present"><span class="mi-dot"></span>출석</div>
       <div class="day-menu-item mi-absent"  data-s="absent"><span class="mi-dot"></span>결석</div>
       <div class="day-menu-item mi-penalty" data-s="penalty"><span class="mi-dot"></span>지각·조퇴·외출</div>
     `;
-
     menu.querySelectorAll('.day-menu-item').forEach(item => {
       item.addEventListener('click', e => {
         e.stopPropagation();
@@ -450,7 +356,6 @@ function calcCourse(course) {
   });
   const penaltyAbsent = Math.floor(penalty / 3);
   const totalAbsent = absent + penaltyAbsent;
-  // 결석 1일 이상 + 지각·조퇴·외출 1회 이상 동시 존재 시 즉시 미수료
   const blockedByRule = absent >= 1 && penalty >= 1;
   return { present, absent, penalty, penaltyAbsent, totalAbsent, blockedByRule };
 }
@@ -489,8 +394,8 @@ function updateOverall() {
     overall.innerHTML = `<div class="or-icon">🎉</div><div class="or-title">최종 수료!</div><div class="or-desc">A과정·B과정 모두 80% 이상 출석 달성. 축하합니다!</div>`;
   } else {
     const fails = [];
-    if (!aPass) fails.push(`A과정 (${a.blockedByRule ? '결석 중 지각·조퇴·외출 발생' : '결석 ' + a.totalAbsent + '일'  })`);
-    if (!bPass) fails.push(`B과정 (${b.blockedByRule ? '결석 중 지각·조퇴·외출 발생' : '결석 ' + b.totalAbsent + '일'  })`);
+    if (!aPass) fails.push(`A과정 (${a.blockedByRule ? '결석 중 지각·조퇴·외출 발생' : '결석 ' + a.totalAbsent + '일'})`);
+    if (!bPass) fails.push(`B과정 (${b.blockedByRule ? '결석 중 지각·조퇴·외출 발생' : '결석 ' + b.totalAbsent + '일'})`);
     overall.className = 'overall-result fail';
     overall.innerHTML = `<div class="or-icon">❌</div><div class="or-title">수료 불가</div><div class="or-desc">${fails.join(', ')} — 80% 출석 기준 미달</div>`;
   }
